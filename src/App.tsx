@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 
 const screenSize : {}= {
+  verysmall : "576px" ,
     mobile: "767px",
   meduim : "992px" ,
   larg : '1200px'

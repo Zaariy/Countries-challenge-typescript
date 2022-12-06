@@ -42,7 +42,12 @@ function Home(props : proptype) {
             return { ...prv, search: prv.search, region: prv.region , name: name }
         })
     }
+    function clearName() {
 
+        setInfoSearch((prv) => {
+            return { ...prv  , search : prv.search , region : prv.region , name : ''}
+        })
+    }
     function switchComponents() {
         switch (infoSearch.name.length) {
             case 0:
@@ -51,10 +56,11 @@ function Home(props : proptype) {
                         filterCountriesApi={infoSearch}
                         setName={setNameCountry}
                     />    
+                    
                 )
             default:
                 return (
-                    <CountryDetails nameCountry={infoSearch.name} ></CountryDetails>
+                    <CountryDetails nameCountry={infoSearch.name} backpage={clearName} ></CountryDetails>
                 )
         }
     }
@@ -65,7 +71,7 @@ function Home(props : proptype) {
             <Header clickEvent={props.clickEvent}  />
             <StyledHome>
                 <Container>
-                    <SearchCountries setInforamtionCountries={setSearchValues} />
+                    {infoSearch.name.length === 0 ? <SearchCountries setInforamtionCountries={setSearchValues} /> : null}
                     {switchComponents()}
                 </Container>
             </StyledHome>

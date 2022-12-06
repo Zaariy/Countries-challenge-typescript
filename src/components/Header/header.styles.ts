@@ -26,9 +26,13 @@ const SwitchThemes = styled.button`
   border: none;
   color: ${({ theme }) => theme.colorText};
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.9rem;
+  font-weight: 600;
   background: none;
+
+  svg {
+    margin-right: 10px;
+  }
 `;
 
 export { StyledHeader, StyledH1, SwitchThemes, HeaderContent };

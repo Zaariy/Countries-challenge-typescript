@@ -3,58 +3,38 @@ import {
     StyledCountries
 } from './counties.styled';
 import Card from '../../components/Card';
+import {PropsFilterApi , ApiCountryType } from './Propstype';
 
-type APICOUNTRYTYPE = {
-    name: {
-        common : string
-    }
-    flags: {
-        png : string
-    }
-    region : string ,
-    population : number ,
-    capital : string[]
 
-}
-
-type PROPSFILTERAPI = {
-    filterCountriesApi: {
-       region : string , 
-        search: string, 
-      
-    } ,
-    setName(name : string) : void ,
-}
-
-export default function Countries(props  : PROPSFILTERAPI) {
+export default function Countries(props  : PropsFilterApi) {
     const [countriesState, setCountriesState]  = useState([]); 
-    console.log(props)
+    // const [CountryNotFound, setErrorCountry] = useState(true);
+    
     useEffect(() => {
         fetch(props.filterCountriesApi.search || props.filterCountriesApi.region)
             .then((countriesData) => countriesData.json())
             .then((data: []) => {
                 setCountriesState(data)
+                
             })
-    }, [props.filterCountriesApi ])
-        
+    }, [props.filterCountriesApi])
+
     return (
         <StyledCountries>
             {
-                countriesState.map((country: APICOUNTRYTYPE, index) => {
-                    
-                    return (
+                countriesState?.map((country: ApiCountryType, index) => {  
 
+                    return (
                         <Card key={index}
-                            onClickEvent={() => props.setName(country.name.common)}
-                            name={country.name.common}
-                            Population={country.population}
-                            Region={country.region}
-                            capital={country.capital ? country.capital[0] : 'Unknown'}
-                            img={country.flags.png}
-                        ></Card>
-                       
+                            onClickEvent={() => props.setName(country?.name.common)}
+                            name={country?.name.common}
+                            Population={country?.population}
+                            Region={country?.region}
+                            capital={country?.capital ? country.capital[0] : 'Unknown'}
+                            img={country?.flags.png}
+                        ></Card> 
                     );
-                })
+                }) 
             }
         </StyledCountries>
     );

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon} from '@fortawesome/free-solid-svg-icons';
 import { 
     StyledHeader,
     HeaderContent ,
@@ -23,6 +25,7 @@ function Header(props : PropsTypes) {
                         Where in the world?
                     </StyledH1>
                     <SwitchThemes onClick={props.clickEvent}>
+                        <FontAwesomeIcon icon={faMoon} />
                         Dark Mode
                     </SwitchThemes>
                 </HeaderContent>

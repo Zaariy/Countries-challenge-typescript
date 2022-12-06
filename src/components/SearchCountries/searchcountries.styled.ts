@@ -17,6 +17,7 @@ const InputSearch = styled.input`
   padding: 1rem 1.2rem;
   min-width: 40%;
   border-radius: 5px;
+  box-shadow: 0 0.1px 5px black;
 
   &::placeholder {
     color: ${({ theme }) => theme.colorText};
@@ -38,6 +39,7 @@ const FilterByRegion = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  box-shadow: 0 0.1px 5px black;
   span {
     margin-right: 1rem;
     display: block;
