@@ -39,10 +39,11 @@ const Title = styled.h2`
 `;
 const BoxDetails = styled.div`
     /* display : flex ; */
-    width: 100%;
+    /* max-width: 60%; */
+
 `;
 const FlagCountry = styled.img`
-    width: 350px ;
+    height: 250px ;
     margin-right: 100px;
 
     @media (max-width : ${({theme}) => theme.size.verysmall}) {
@@ -54,10 +55,11 @@ const FlagCountry = styled.img`
 `;
 
 const CountryInformation = styled.div`
-    height : 100% ;
+    /* height : 100% ; */
     display : flex ;
     justify-content: space-between ;
     width: 100% ;
+    margin-bottom: 60px;
 
     @media (max-width : ${({theme}) => theme.size.meduim}) {
        flex-direction : column ;
@@ -65,7 +67,7 @@ const CountryInformation = styled.div`
 `;
 const SubInfoCountry = styled.ul`
     margin-bottom: 5px ;
-
+    /* margin-right: 100px; */
     @media (max-width : ${({theme}) => theme.size.meduim}) {
         margin-bottom: 0;
     }
@@ -98,4 +100,66 @@ const InfoItem = styled.li`
     }
 `;
 
-export {BackButton , StyledDetails, Title , BoxDetails , FlagCountry , CountryInformation , SubInfoCountry , InfoItem}
+const BorderCountries = styled.div`
+    width: 100% ;
+    display : flex ;
+    align-items: center ;
+    
+    @media (max-width : ${({theme}) => theme.size.meduim}) {
+        flex-direction: column;
+        align-items: flex-start ;
+       
+    }
+`;
+const BorderUl = styled.ul`
+    display: flex ;
+    flex-wrap: wrap ;
+
+    
+    @media (max-width : ${({theme}) => theme.size.meduim}) {
+        /* flex-direction: column; */
+       
+    }
+`;
+
+const BorderItem = styled.li`
+     color :   ${({ theme }) => theme.colorText} ;
+     border-radius: 5px;
+     background-color :   ${({ theme }) => theme.colorElements} ;
+     font-size: 14px;
+     font-weight: 100;
+     width: fit-content ;
+    margin-right : 10px ;
+    margin-top: 10px ;
+    padding: 0.4rem 2.4rem ;
+    /* margin: 10px 0 ; */
+    @media (max-width : ${({theme}) => theme.size.meduim}) {
+        margin: 10px 0 ;
+        margin-right: 10px;
+       
+    }
+`;
+
+const BorderCaption = styled.span`
+
+    color :   ${({theme}) => theme.colorText} ;
+    font-weight: 600;
+    font-size: 15px ;
+    margin-right: 10px ;
+
+`;
+export {
+    BackButton,
+    StyledDetails,
+    Title,
+    BoxDetails,
+    FlagCountry,
+    CountryInformation,
+    SubInfoCountry,
+    InfoItem,
+    BorderCountries ,
+    BorderUl ,
+    BorderItem,
+    BorderCaption
+
+}

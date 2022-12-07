@@ -18,6 +18,7 @@ type PropsInfoCountryApi = [{
     tld: string[] ,
     currencies: {} ,
     languages: {} ,
+    borders: string[];
 
 }]
 export type {PropsType , PropsInfoCountryApi} 

@@ -9,10 +9,15 @@ import {
     Title,
     CountryInformation,
     SubInfoCountry,
-    InfoItem
+    InfoItem,
+    BorderCountries,
+    BorderUl,
+    BorderItem,
+    BorderCaption
 } from './countriesDetails.styled';
 import {fetchSubInformation } from './utils/functionHelper';
 import {PropsInfoCountryApi , PropsType } from './typesProps';
+
 
 export function CountryDetails(props : PropsType) {
     const [countryState, setCoutryState] = useState<PropsInfoCountryApi | []>([]);
@@ -27,7 +32,7 @@ export function CountryDetails(props : PropsType) {
             })
     }, [props.nameCountry])
     
-
+    console.log(countryState)
     return (
         <>
             <BackButton onClick={() => props.backpage()}>
@@ -54,6 +59,16 @@ export function CountryDetails(props : PropsType) {
                                     <InfoItem>Languages :  <ul>{fetchSubInformation(countryState[0]?.languages, 'lang').map((ele: string , index : number) => <li key={index}>{ele}</li>)}</ul> </InfoItem>
                                 </SubInfoCountry>
                             </CountryInformation>
+                            <BorderCountries>
+                                <BorderCaption>Border Countries:</BorderCaption>
+                                <BorderUl>
+                                    {
+                                        countryState[0]?.borders && countryState[0]?.borders.map((element , index ) => {
+                                            return (<BorderItem key={index}>{element}</BorderItem>)
+                                        })
+                                    }
+                                </BorderUl>
+                            </BorderCountries>
                         </BoxDetails>
                     </StyledDetails>
             )  : null       
